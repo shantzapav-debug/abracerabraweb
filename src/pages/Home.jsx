@@ -35,10 +35,9 @@ function Reveal({ className, children }) {
 }
 
 const FAMILIES = [
-  { key: 'grinding', ids: ['grinding-wheel'], titleKey: null, blurbKey: 'cat.band.grinding' },
-  { key: 'honing', ids: ['honing-stone', 'honing-stick'], titleKey: 'cat.group.honing', blurbKey: 'cat.band.honing' },
-  { key: 'cutting', ids: ['cutting-wheel', 'cutting-disc'], titleKey: 'cat.group.cutting', blurbKey: 'cat.band.cutting' },
-  { key: 'specialties', ids: ['specialties'], titleKey: null, blurbKey: 'cat.band.specialties' },
+  { key: 'abrasives', ids: ['abrasives'], titleKey: null, blurbKey: 'cat.band.abrasives' },
+  { key: 'industrial-ceramics', ids: ['industrial-ceramics'], titleKey: null, blurbKey: 'cat.band.industrialCeramics' },
+  { key: 'advanced-ceramics', ids: ['advanced-ceramics'], titleKey: null, blurbKey: 'cat.band.advancedCeramics' },
 ];
 
 const CAPABILITIES = [

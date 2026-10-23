@@ -67,12 +67,14 @@ assert.deepEqual(
   catalog.products.map((product) => product.id),
   ["gw-rail-100", "zr-crucible-demo"],
 );
-assert.equal(catalog.products[0].category, "grinding-wheel");
+assert.equal(catalog.products[0].category, "abrasives");
 assert.equal(catalog.products[0].currency, "INR");
 assert.equal(catalog.products[0].moq, 50);
 assert.equal(catalog.products[1].category, "zirconia-labware");
 assert.equal(catalog.products[1].lotSize, 1);
-assert.ok(catalog.categories.some((category) => category.id === "grinding-wheel" && category.name === "Grinding Wheels"));
+assert.ok(catalog.categories.some((category) => category.id === "abrasives" && category.name === "Abrasives"));
+assert.ok(catalog.categories.some((category) => category.id === "industrial-ceramics"));
+assert.ok(catalog.categories.some((category) => category.id === "advanced-ceramics"));
 assert.ok(catalog.categories.some((category) => category.id === "zirconia-labware" && category.name === "Zirconia Labware"));
 for (const product of catalog.products) {
   for (const key of ["id", "name", "category", "image", "moq", "lotSize", "indicativePrice", "currency", "unit", "specs"]) {
