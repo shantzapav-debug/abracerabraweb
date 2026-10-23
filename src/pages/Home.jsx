@@ -147,30 +147,32 @@ export default function Home() {
       <section className="family-section" aria-label={t('nav.products')}>
         <div className="container">
           <Reveal className="family-grid reveal-photos">
-            {families.map((family) => (
-              <article className="family-card" key={family.key}>
-                {family.sample ? (
-                  <img src={family.sample.image} alt="" />
-                ) : (
-                  <div className="placeholder" />
-                )}
-                <div className="family-card-body">
-                  <h2>{family.titleKey ? t(family.titleKey) : family.cats[0].name}</h2>
-                  <p>{t(family.blurbKey)}</p>
-                  <div className="family-links">
-                    {family.cats.map((category) => (
-                      <Link key={category.id} to={`/category/${category.id}`}>
-                        {category.name}
-                        <span>{categoryCount(category.id)}</span>
-                      </Link>
-                    ))}
+            {families.map((family) => {
+              const category = family.cats[0];
+              const count = family.cats.reduce((sum, cat) => sum + categoryCount(cat.id), 0);
+              return (
+                <Link
+                  key={family.key}
+                  to={`/category/${category.id}`}
+                  className="family-card"
+                  aria-label={`${family.titleKey ? t(family.titleKey) : category.name} — ${t('cat.viewProducts')}`}
+                >
+                  {family.sample ? (
+                    <img src={family.sample.image} alt="" />
+                  ) : (
+                    <div className="placeholder" />
+                  )}
+                  <div className="family-card-body">
+                    <h2>{family.titleKey ? t(family.titleKey) : category.name}</h2>
+                    <p>{t(family.blurbKey)}</p>
+                    <p className="family-count">
+                      {count} {t('products')}
+                    </p>
+                    <span className="link-more">{t('cat.viewProducts')}</span>
                   </div>
-                  <Link to={`/category/${family.cats[0].id}`} className="link-more">
-                    {t('cat.viewProducts')}
-                  </Link>
-                </div>
-              </article>
-            ))}
+                </Link>
+              );
+            })}
           </Reveal>
         </div>
       </section>
